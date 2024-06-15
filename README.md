@@ -1,14 +1,17 @@
 ### AWS ACM Expiration Alert Automation Scripts Using Python Boto3
 
 ### Description:
-This Python script automates the monitoring of AWS ACM (Amazon Certificate Manager) certificates across multiple AWS accounts. It checks the expiration dates of ACM certificates and sends email alerts when certificates are nearing expiration (less than 30 days). The script uses AWS IAM roles with STS (Security Token Service) AssumeRole for cross-account access, ensuring security and isolation between AWS accounts.
+This Python script automates the monitoring of AWS ACM (Amazon Certificate Manager) certificates across multiple AWS accounts. It checks the expiration dates of ACM certificates and sends email alerts when certificates are nearing expiration (less than 30 days) using AWS SES. The script uses AWS IAM roles with STS (Security Token Service) AssumeRole for cross-account access, ensuring security and isolation between AWS accounts.
 
 ### Features:
-- **Multi-Account Support:** Monitor ACM certificates across multiple AWS accounts from a single script.
+- **Multi-Account Support:** Monitor ACM certificates across multiple AWS accounts.
 - **Automated Alerts:** Send email alerts using AWS SES when ACM certificates are 30, 20, and 10 days away from expiration.
 - **Security:** Uses STS AssumeRole for secure access to AWS resources across accounts.
-- **Customizable:** Easily configurable through `config.py` to specify AWS account names and SES (Simple Email Service) email through `library.py` recipients.
+- **Customizable:** Easily configurable through `config.py` to specify AWS account name and IAM Roles and SES (Simple Email Service) email through `library.py` recipients.
 - **MIT License:** Open-source under the MIT License, allowing for modification and distribution.
+
+### Python Version:
+Compatible with Python 3.12
 
 ### Installation:
 1. Clone the repository:
@@ -23,7 +26,7 @@ This Python script automates the monitoring of AWS ACM (Amazon Certificate Manag
 ### Configuration:
 - Edit `config.py` to specify:
   - `accountList`: List of AWS account names to monitor.
-  - `accountConfig`: Dictionary mapping AWS account names to their respective IAM role ARNs (iamRole).
+  - `accountConfig`: Dictionary mapping AWS account names to their respective IAM role ARNs.
 - Ensure the AWS IAM roles used for AssumeRole have appropriate permissions:
   - **ACM Access:** Read-only access.
   - **SES Access:** Ensure the AWS account where the script runs has SES access to send emails.
@@ -57,7 +60,7 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE) fil
 
 ### Author:
 - **Alon Shrestha**
-- GitHub: [Your GitHub Profile](https://github.com/alonshrestha)
+- GitHub: [Profile Link](https://github.com/alonshrestha)
 
 ## Usage Disclaimer and Considerations
 
